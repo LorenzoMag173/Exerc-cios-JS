@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cálculo de Média Ponderada</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+    .container {
+        width: 300px;
+        margin: 0 auto;
+    }
+</style>
+<script>
+    function calcularMedia() {
+        // Obtém os valores das notas e pesos dos inputs
+        var nota1 = document.getElementById("nota1").value;
+        var peso1 = document.getElementById("peso1").value;
+        var nota2 = document.getElementById("nota2").value;
+        var peso2 = document.getElementById("peso2").value;
+        var nota3 = document.getElementById("nota3").value;
+        var peso3 = document.getElementById("peso3").value;
+
+        // Converte os valores para números float
+        nota1 = parseFloat(nota1);
+        peso1 = parseFloat(peso1);
+        nota2 = parseFloat(nota2);
+        peso2 = parseFloat(peso2);
+        nota3 = parseFloat(nota3);
+        peso3 = parseFloat(peso3);
+
+        // Elemento para exibir o resultado
+        var resultado = document.getElementById("resultado");
+
+        // Verifica se os valores são válidos
+        if (isNaN(nota1) || isNaN(peso1) || isNaN(nota2) || isNaN(peso2) || isNaN(nota3) || isNaN(peso3)) {
+            resultado.textContent = "Por favor, insira valores numéricos válidos para notas e pesos.";
+            return;
+        }
+
+        // Calcula a média ponderada
+        var mediaPonderada = (nota1 * peso1 + nota2 * peso2 + nota3 * peso3) / (peso1 + peso2 + peso3);
+
+        // Exibe o resultado na página
+        resultado.textContent = "A média ponderada das notas é: " + mediaPonderada.toFixed(2);
+    }
+</script>
+</head>
+<body>
+    <div class="container">
+        <h2>Cálculo de Média Ponderada</h2>
+        <p>Insira as notas e pesos das provas:</p>
+        <p>Nota 1: <input type="text" id="nota1"> Peso 1: <input type="text" id="peso1"></p>
+        <p>Nota 2: <input type="text" id="nota2"> Peso 2: <input type="text" id="peso2"></p>
+        <p>Nota 3: <input type="text" id="nota3"> Peso 3: <input type="text" id="peso3"></p>
+        <button onclick="calcularMedia()">Calcular Média Ponderada</button>
+        <p id="resultado"></p>
+    </div>
+</body>
+</html>

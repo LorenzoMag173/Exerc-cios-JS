@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificação de Maioridade</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+    .container {
+        width: 300px;
+        margin: 0 auto;
+    }
+</style>
+<script>
+    function verificarMaioridade() {
+        // Obtém o valor da idade do input
+        var idade = document.getElementById("idade").value;
+
+        // Converte o valor para um número inteiro
+        idade = parseInt(idade);
+
+        // Elemento para exibir o resultado
+        var resultado = document.getElementById("resultado");
+
+        // Verifica se a idade é válida
+        if (isNaN(idade) || idade <= 0) {
+            resultado.textContent = "Por favor, insira uma idade válida.";
+            return;
+        }
+
+        // Verifica se é maior ou menor de idade
+        if (idade >= 18) {
+            resultado.textContent = "Você é maior de idade.";
+        } else {
+            resultado.textContent = "Você é menor de idade.";
+        }
+    }
+</script>
+</head>
+<body>
+    <div class="container">
+        <h2>Verificação de Maioridade</h2>
+        <p>Insira sua idade:</p>
+        <input type="text" id="idade">
+        <button onclick="verificarMaioridade()">Verificar</button>
+        <p id="resultado"></p>
+    </div>
+</body>
+</html>
